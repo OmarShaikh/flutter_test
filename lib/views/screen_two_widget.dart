@@ -1,7 +1,5 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
-import 'screen_three_widget.dart';
+import '../placeholder/placeholder_widget.dart';
 
 /// This is the main application widget.
 class ScreenTwo extends StatelessWidget {
@@ -17,6 +15,12 @@ class ScreenTwo extends StatelessWidget {
     );
   }
 }
+
+const List<Tab> tabs = <Tab>[
+  Tab(text: 'Statistics'),
+  Tab(text: 'Content'),
+  Tab(text: 'Creators'),
+];
 
 /// This is the stateful widget that the main application instantiates.
 class MyStatefulWidget extends StatefulWidget {
@@ -41,7 +45,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xfff4f1de),
       appBar: AppBar(
+        backgroundColor: Color(0xfff4f1de),
+        //  elevation: 0,
         flexibleSpace: new PreferredSize(
             preferredSize: Size.fromHeight(40),
             child: ListView(
@@ -60,12 +67,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
                         child: TabBar(
                           controller: _tabController,
                           labelColor: Colors.black,
+                          labelStyle: TextStyle(fontSize: 30.0),
+                          unselectedLabelStyle: TextStyle(fontSize: 18.0),
                           unselectedLabelColor: Colors.grey,
-                          tabs: [
-                            Tab(child: Text('Page 1')),
-                            Tab(child: Text('Page 2')),
-                            Tab(child: Text('Page 3')),
-                          ],
+                          indicatorColor: Colors.red,
+                          tabs: tabs,
                         ),
                       ),
                     ),
@@ -80,14 +86,18 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
       ),
       body: TabBarView(
         controller: _tabController,
+        // @Parth put your widgets here
         children: <Widget>[
+          PlaceholderWidget(Colors.blueGrey),
           Center(
             child: Text('It\'s cloudy here'),
           ),
           Center(
             child: Text('It\'s rainy here'),
           ),
-          ScreenThree(),
+          // Center(
+          //   child: Text('It\'s cloudy here'),
+          // ),
         ],
       ),
     );

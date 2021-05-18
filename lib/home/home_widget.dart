@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-//import '../placeholder/placeholder_widget.dart';
 import '../views/screen_one_widget.dart';
 import '../views/screen_two_widget.dart';
 import '../views/screen_three_widget.dart';
@@ -27,22 +26,17 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Brandie Cards Demo '),
-      ),
-      // body: _children[_page],
       body: AnimatedSwitcher(
         child: _children[_page],
         switchInCurve: Curves.ease,
         switchOutCurve: Curves.ease,
         duration: Duration(milliseconds: 500),
       ),
-
       bottomNavigationBar: CurvedNavigationBar(
         key: _bottomNavigationKey,
         animationDuration: Duration(milliseconds: 300),
         color: Color(0xff7209b7),
-        backgroundColor: Color(0xfff1faee),
+        backgroundColor: Color(0xfff4f1de),
         onTap: (index) {
           setState(() {
             _page = index;
@@ -53,7 +47,7 @@ class _HomeState extends State<Home> {
           Icon(Icons.add, size: 30, color: Colors.white),
           Icon(Icons.list, size: 30, color: Colors.white),
           Icon(Icons.compare_arrows, size: 30, color: Colors.white),
-          Icon(Icons.compare_arrows, size: 30, color: Colors.white),
+          Icon(Icons.settings, size: 30, color: Colors.white),
         ],
       ),
     );
